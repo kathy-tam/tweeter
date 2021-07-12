@@ -1,0 +1,13 @@
+header {
+  background-color: burlywood;
+  background-image: url("../images/asfalt-dark.png");
+  color: white;
+  height: 400px;
+}
+
+header div {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
