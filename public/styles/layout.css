@@ -24,3 +24,10 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ /* Main container for tweets */
+ main.container {
+   background-color: #f4f1ec;
+   margin: auto;
+   width: 90%;
+  }
