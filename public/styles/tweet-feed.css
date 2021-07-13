@@ -8,6 +8,13 @@
   box-shadow: 5px 5px #4056A1;
 }
 
+.tweet footer {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+}
+
 .tweet header {
   align-items: center;
   color: #545149;
@@ -20,15 +27,11 @@
   align-items: center;
 }
 
-.username {
-  color: silver;
-}
-
-.tweet footer {
-  align-items: center;
-  display: flex;
-  font-size: 18px;
-  justify-content: space-between;
+.tweet-text {
+  border-style: none;
+  border-bottom: solid 3px #545149;
+  color: #545149;
+  width: 100%;
 }
 
 .avatar {
@@ -36,11 +39,8 @@
   height: 2em;
 }
 
-.tweet-text {
-    border-style: none;
-    border-bottom: solid 3px #545149;
-    color: #545149;
-    width: 100%;
+.username {
+  color: silver;
 }
 
 i:hover {
