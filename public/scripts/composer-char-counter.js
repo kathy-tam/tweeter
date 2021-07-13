@@ -1,4 +1,4 @@
-const MAX_TWEET_LENGTH = 10;
+const MAX_TWEET_LENGTH = 140;
 
 $(document).ready(function() {
   $("#tweet-text").on("input", onInput);
