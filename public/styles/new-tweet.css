@@ -1,0 +1,21 @@
+#tweet-text {
+  background-color: transparent;
+  border-style: none;
+  border-bottom: solid 3px #545149;
+  color: #545149;
+  margin-bottom: 10px;
+  resize: none;
+  width: 100%;
+}
+
+.tweet-footer {
+  font-family: 'Bungee', sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-tweet button {
+  background-color: #4056A1;
+  border-style: none;
+  color: white;
+}

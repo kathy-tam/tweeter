@@ -3,6 +3,7 @@ header {
   background-image: url("../images/asfalt-dark.png");
   color: white;
   height: 400px;
+  margin-bottom: 20px;
 }
 
 header div {
