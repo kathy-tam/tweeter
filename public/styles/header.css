@@ -1,4 +1,4 @@
-header {
+.main-header {
   background-color: burlywood;
   background-image: url("../images/asfalt-dark.png");
   color: white;
@@ -6,7 +6,7 @@ header {
   margin-bottom: 20px;
 }
 
-header div {
+.main-header div {
   align-items: center;
   display: flex;
   justify-content: center;
