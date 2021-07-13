@@ -1,4 +1,4 @@
-#tweet-text {
+#new-tweet-text {
   background-color: transparent;
   border-style: none;
   border-bottom: solid 3px #545149;
@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.tweet-footer {
+.new-tweet-footer {
   font-family: 'Bungee', sans-serif;
   display: flex;
   justify-content: space-between;
@@ -22,4 +22,8 @@
 
 .error{
   color: red;
+}
+
+.new-tweet {
+  margin-bottom: 50px;
 }
