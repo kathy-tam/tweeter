@@ -2,6 +2,10 @@ article.tweet {
   border: solid 3px #545149;
 }
 
+article.tweet:hover {
+  box-shadow: 5px 5px #4056A1;
+}
+
 article.tweet header {
   align-items: center;
   color: #545149;
@@ -43,4 +47,8 @@ article.tweet footer {
 
 .tweet-text p {
   margin: 10px 7px;
+}
+
+i:hover {
+  color: burlywood;
 }
