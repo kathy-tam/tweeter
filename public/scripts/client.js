@@ -5,6 +5,7 @@
  */
 
 const createTweetElement = function(tweetData) {
+  const dateCreated = timeago.format(tweetData.created_at);
   const $tweet = $(`
   <article class="tweet">
     <header>
@@ -18,7 +19,7 @@ const createTweetElement = function(tweetData) {
       <p>${tweetData.content.text}</p>
     </div>
     <footer>
-      <p>${tweetData.created_at}</p>
+      <p>${dateCreated}</p>
       <div class="icons">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
