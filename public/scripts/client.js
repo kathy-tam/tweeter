@@ -43,6 +43,11 @@ const loadTweets = function() {
   .then(res => renderTweets(res));
 };
 
+const loadNewTweet = function() {
+  $.ajax('/tweets', { method: 'GET' })
+  .then(res => $('.tweets-feed').prepend(createTweetElement(res[res.length-1])));
+};
+
 $(document).ready(function() {
   loadTweets();
 
@@ -58,7 +63,7 @@ $(document).ready(function() {
       alert('Please enter a tweet message between 1-140 characters.')
     } else {
       $.post(url, formData)
-      .then(() => loadTweets());
+      .then(() => loadNewTweet());
     }
   });
 });
