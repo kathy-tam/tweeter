@@ -68,5 +68,22 @@ const data = [
 // Test / driver code (temporary)
 $(document).ready(function() {
   renderTweets(data);
+  
+  $("form").submit(function(event) {
+    event.preventDefault();
+    alert('Submit handler called');
+  });
 });
+
+// $(function() {
+//   const $button = $('#load-more-posts');
+//   $button.on('click', function () {
+//     console.log('Button clicked, performing ajax call...');
+//     $.ajax('more-posts.html', { method: 'GET' })
+//     .then(function (morePostsHtml) {
+//       console.log('Success: ', morePostsHtml);
+//       $button.replaceWith(morePostsHtml);
+//     });
+//   });
+// });
 
