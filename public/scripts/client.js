@@ -4,6 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// Prevent XSS
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = function(tweet) {
   const dateCreated = timeago.format(tweet.created_at);
   const $tweet = $(`
@@ -16,7 +23,7 @@ const createTweetElement = function(tweet) {
       <b class="username">${tweet.user.handle}</b>
     </header>
     <div class="tweet-text">
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
     </div>
     <footer>
       <p>${dateCreated}</p>
@@ -62,6 +69,7 @@ $(document).ready(function() {
     } else if (tweetText.length > 140) {
       alert('Please enter a tweet message between 1-140 characters.')
     } else {
+      $(this).get(0).reset();
       $.post(url, formData)
       .then(() => loadNewTweet());
     }
