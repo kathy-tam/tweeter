@@ -4,19 +4,19 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const createTweetElement = function(tweetData) {
-  const dateCreated = timeago.format(tweetData.created_at);
+const createTweetElement = function(tweet) {
+  const dateCreated = timeago.format(tweet.created_at);
   const $tweet = $(`
   <article class="tweet">
     <header>
       <div>
-        <img class="avatar" src=${tweetData.user.avatars}>
-        <p>${tweetData.user.name}</p>
+        <img class="avatar" src=${tweet.user.avatars}>
+        <p>${tweet.user.name}</p>
       </div>
-      <b class="username">${tweetData.user.handle}</b>
+      <b class="username">${tweet.user.handle}</b>
     </header>
     <div class="tweet-text">
-      <p>${tweetData.content.text}</p>
+      <p>${tweet.content.text}</p>
     </div>
     <footer>
       <p>${dateCreated}</p>
@@ -30,24 +30,43 @@ const createTweetElement = function(tweetData) {
   return $tweet;
 };
 
-// Test / driver code (temporary). Eventually will get this from the server.
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
+const renderTweets = function(tweets) {
+  let $tweet;
+  for(const tweet of tweets) {
+    $tweet = createTweetElement(tweet);
+    $('.tweets-feed').append($tweet);
+  }
+};
+
+// Fake data taken from initial-tweets.json
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
+      "handle": "@SirIsaac"
     },
-  "content": {
+    "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-  "created_at": 1461116232227
-}
+    "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+]
 
-const $tweet = createTweetElement(tweetData);
 
 // Test / driver code (temporary)
 $(document).ready(function() {
-  console.log($tweet); // to see what it looks like
-  $('.tweets-feed').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  renderTweets(data);
 });
 
