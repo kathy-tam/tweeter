@@ -34,7 +34,7 @@ const renderTweets = function(tweets) {
   let $tweet;
   for(const tweet of tweets) {
     $tweet = createTweetElement(tweet);
-    $('.tweets-feed').append($tweet);
+    $('.tweets-feed').prepend($tweet);
   }
 };
 
@@ -48,8 +48,17 @@ $(document).ready(function() {
 
   $("form").submit(function(event) {
     event.preventDefault();
+    const formData = $(this).serialize();
     const url = $(this).attr("action");
-    $.post(url, $(this).serialize())
-    .then(res => {res});
+    const tweetText = formData.replace('text=', '');
+
+    if (tweetText === "") {
+      alert('Please enter a tweet message.')
+    } else if (tweetText.length > 140) {
+      alert('Please enter a tweet message between 1-140 characters.')
+    } else {
+      $.post(url, formData)
+      .then(() => loadTweets());
+    }
   });
 });
