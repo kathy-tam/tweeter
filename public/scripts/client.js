@@ -92,6 +92,11 @@ $(document).ready(function() {
 
   $('.compose').click(function(event) {
     const $newTweet = $('.new-tweet');
-    ($newTweet.is(':visible')) ? $newTweet.slideUp() : $newTweet.slideDown();
+    if ($newTweet.is(':visible')) {
+      $newTweet.slideUp();
+    } else {
+      $newTweet.slideDown();
+      $('#new-tweet-text').focus();
+    }
   });
 });
