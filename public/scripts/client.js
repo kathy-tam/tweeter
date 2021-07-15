@@ -90,7 +90,7 @@ $(document).ready(function() {
     }
   });
 
-  $('.container').click(function(event) {
+  $('.compose').click(function(event) {
     const $newTweet = $('.new-tweet');
     ($newTweet.is(':visible')) ? $newTweet.slideUp() : $newTweet.slideDown();
   });
