@@ -55,6 +55,16 @@ const loadNewTweet = function() {
   .then(res => $('.tweets-feed').prepend(createTweetElement(res[res.length-1])));
 };
 
+const createErrorMsg = function(msg) {
+  const $error = $(`
+    <div class="error error-msg">
+      <i class="fa fa-times-circle"></i>
+      ${msg}
+    </div>
+  `);
+  return $error;
+};
+
 $(document).ready(function() {
   loadTweets();
 
@@ -64,10 +74,13 @@ $(document).ready(function() {
     const url = $(this).attr("action");
     const tweetText = formData.replace('text=', '');
 
+    $('.error-msg').hide();
     if (tweetText === "") {
-      alert('Please enter a tweet message.')
+      const msg = 'Please enter a tweet message.';
+      $(createErrorMsg(msg)).prependTo('.new-tweet').hide().slideDown();
     } else if (tweetText.length > 140) {
-      alert('Please enter a tweet message between 1-140 characters.')
+      const msg = 'Please enter a tweet message between 1-140 characters.';
+      $(createErrorMsg(msg)).prependTo('.new-tweet').hide().slideDown();
     } else {
       $(this).get(0).reset();
       $.post(url, formData)

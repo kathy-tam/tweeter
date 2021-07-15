@@ -20,10 +20,17 @@
   color: white;
 }
 
-.error{
+.error {
   color: red;
 }
 
 .new-tweet {
   margin-bottom: 50px;
+}
+
+.error.error-msg {
+  background-color: pink;
+  border: solid 2px red;
+  margin-bottom: 20px;
+  padding: 10px;
 }
