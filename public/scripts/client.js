@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+const MAX_TWEET_LENGTH = 140;
 
 // Prevent XSS
 const escape = function (str) {
@@ -85,7 +86,7 @@ $(document).ready(function() {
       $(createErrorMsg(msg)).prependTo('.new-tweet').hide().slideDown();
     } else {
       $(this).get(0).reset();
-      $(this).children().find("output").html(140);
+      $(this).children().find("output").html(MAX_TWEET_LENGTH);
       $.post(url, formData)
       .then(() => loadNewTweet());
     }
