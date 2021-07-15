@@ -85,6 +85,7 @@ $(document).ready(function() {
       $(createErrorMsg(msg)).prependTo('.new-tweet').hide().slideDown();
     } else {
       $(this).get(0).reset();
+      $(this).children().find("output").html(140);
       $.post(url, formData)
       .then(() => loadNewTweet());
     }
