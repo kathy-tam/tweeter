@@ -66,6 +66,8 @@ const createErrorMsg = function(msg) {
 };
 
 $(document).ready(function() {
+  $('.new-tweet').hide();
+
   loadTweets();
 
   $("form").submit(function(event) {
@@ -86,5 +88,10 @@ $(document).ready(function() {
       $.post(url, formData)
       .then(() => loadNewTweet());
     }
+  });
+
+  $('.container').click(function(event) {
+    const $newTweet = $('.new-tweet');
+    ($newTweet.is(':visible')) ? $newTweet.slideUp() : $newTweet.slideDown();
   });
 });
