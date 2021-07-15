@@ -32,6 +32,7 @@ main.container {
    width: 90%;
 }
 
+/* Bounce animation effect for compose arrow */
 .bounce {
   animation: bounce 2s infinite;
 }
@@ -48,6 +49,7 @@ main.container {
   }
 }
 
+/* Scroll to top button */
 .backtotop:link, .backtotop:visited, .backtotop:hover, .backtotop:active {
   text-decoration: none; 
 }
@@ -65,4 +67,19 @@ main.container {
   position: fixed;
   right: 0;
   width: 60px;
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    display: flex;
+    margin: 200px 50px;
+  }
+
+  header {
+    margin: 0px 50px 0px 0px;
+  }
+
+  main.container {
+    margin-left: 50px;
+  }
 }
