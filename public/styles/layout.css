@@ -47,3 +47,22 @@ main.container {
     transform: translateY(10px);
   }
 }
+
+.backtotop:link, .backtotop:visited, .backtotop:hover, .backtotop:active {
+  text-decoration: none; 
+}
+
+.fa-angle-double-up {
+  align-items: center;
+  background-color: red;
+  border-radius: 50%;
+  bottom: 0;
+  color: white;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  margin: 10px;
+  position: fixed;
+  right: 0;
+  width: 60px;
+}

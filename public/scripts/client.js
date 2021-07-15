@@ -99,4 +99,25 @@ $(document).ready(function() {
       $('#new-tweet-text').focus();
     }
   });
+
+  $('.backtotop').css({'display': 'none'});
+  const offset = 200;
+  const duration = 150;
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > offset) {
+        $('.backtotop').fadeIn(duration);
+        $('.compose').fadeOut(duration);
+    } else {
+        $('.backtotop').fadeOut(duration);
+        $('.compose').fadeIn(duration);
+      }
+    });
+    
+    $('.backtotop').click(function(event) {
+      event.preventDefault();
+      $('html, body').animate({scrollTop: 0}, duration);
+      $('.new-tweet').show();
+      $('#new-tweet-text').focus();
+      return false;
+    });
 });
