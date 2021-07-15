@@ -4,6 +4,7 @@
   border-bottom: solid 3px #545149;
   color: #545149;
   margin-bottom: 10px;
+  outline: none;
   resize: none;
   width: 100%;
 }
