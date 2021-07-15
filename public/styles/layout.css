@@ -26,8 +26,24 @@ body {
  */
 
  /* Main container for tweets */
- main.container {
+main.container {
    background-color: #f4f1ec;
    margin: auto;
    width: 90%;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
   }
+  40% {
+    transform: translateY(15px);
+  }
+  60% {
+    transform: translateY(10px);
+  }
+}
