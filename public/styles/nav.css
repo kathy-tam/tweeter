@@ -15,8 +15,9 @@ nav span {
   font-family: Bungee;
 }
 
-nav div.container {
+nav .container {
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
