@@ -112,7 +112,8 @@ $(document).ready(function() {
   // As user scrolls down, the scroll back to top button appears and the compose button disappears
   $('.backtotop').css({'display': 'none'});
   const offset = 200;
-  const duration = 150;
+  const duration = 300;
+
   $(window).scroll(function() {
     if ($(this).scrollTop() > offset) {
       $('.backtotop').fadeIn(duration);
@@ -125,10 +126,14 @@ $(document).ready(function() {
   
   // Button to scroll back to top. Display and autofocus the new tweet form
   $('.backtotop').click(function(event) {
-    event.preventDefault();
-    // $('html, body').animate({scrollTop: 0}, duration);
-    $('.new-tweet').show();
-    $('#new-tweet-text').focus();
-    return false;
+    $('html, body').animate({ scrollTop: 0 }, 
+      {
+        complete: () => {
+          $('.new-tweet').fadeIn(duration + 100);
+          $('#new-tweet-text').focus();
+        }, 
+        duration: duration
+      }
+    );
   });
 });
