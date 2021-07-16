@@ -3,6 +3,7 @@
   background-image: url("../images/asfalt-light.png");
   color: white;
   height: 400px;
+  text-align: center;
 }
 
 @media (max-width: 1023px) {
@@ -12,13 +13,16 @@
   }
 }
 
+/* Desktop layout */
 @media (min-width: 1024px) {
   .main-header {
+    margin: 0px 50px 0px 0px;
     max-width: 450px;
     width: 75%;
   }
 }
 
+/* Center profile pic */
 .main-header div {
   align-items: center;
   display: flex;

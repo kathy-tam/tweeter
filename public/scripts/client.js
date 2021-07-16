@@ -3,10 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 const MAX_TWEET_LENGTH = 140;
 
 // Prevent XSS
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -40,7 +41,7 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function(tweets) {
   let $tweet;
-  for(const tweet of tweets) {
+  for (const tweet of tweets) {
     $tweet = createTweetElement(tweet);
     $('.tweets-feed').prepend($tweet);
   }
@@ -48,12 +49,13 @@ const renderTweets = function(tweets) {
 
 const loadTweets = function() {
   $.ajax('/tweets', { method: 'GET' })
-  .then(res => renderTweets(res));
+    .then(res => renderTweets(res));
 };
 
+// When new tweet submitted, refresh the tweet feed
 const loadNewTweet = function() {
   $.ajax('/tweets', { method: 'GET' })
-  .then(res => $('.tweets-feed').prepend(createTweetElement(res[res.length-1])));
+    .then(res => $('.tweets-feed').prepend(createTweetElement(res[res.length - 1])));
 };
 
 const createErrorMsg = function(msg) {
@@ -67,6 +69,7 @@ const createErrorMsg = function(msg) {
 };
 
 $(document).ready(function() {
+  // By default, new tweet form isn't shown
   $('.new-tweet').hide();
 
   loadTweets();
@@ -77,6 +80,7 @@ $(document).ready(function() {
     const url = $(this).attr("action");
     const tweetText = formData.replace('text=', '');
 
+    //If form validation error, an error message will appear
     $('.error-msg').hide();
     if (tweetText === "") {
       const msg = 'Please enter a tweet message.';
@@ -85,13 +89,16 @@ $(document).ready(function() {
       const msg = 'Please enter a tweet message between 1-140 characters.';
       $(createErrorMsg(msg)).prependTo('.new-tweet').hide().slideDown();
     } else {
+      // Reset the form and character counter
       $(this).get(0).reset();
       $(this).children().find("output").html(MAX_TWEET_LENGTH);
+      //Make AJAX POST request to server
       $.post(url, formData)
-      .then(() => loadNewTweet());
+        .then(() => loadNewTweet());
     }
   });
 
+  // Compose button to toggle new tweet form, and autofocus it
   $('.compose').click(function(event) {
     const $newTweet = $('.new-tweet');
     if ($newTweet.is(':visible')) {
@@ -102,24 +109,26 @@ $(document).ready(function() {
     }
   });
 
+  // As user scrolls down, the scroll back to top button appears and the compose button disappears
   $('.backtotop').css({'display': 'none'});
   const offset = 200;
   const duration = 150;
   $(window).scroll(function() {
     if ($(this).scrollTop() > offset) {
-        $('.backtotop').fadeIn(duration);
-        $('.compose').fadeOut(duration);
+      $('.backtotop').fadeIn(duration);
+      $('.compose').fadeOut(duration);
     } else {
-        $('.backtotop').fadeOut(duration);
-        $('.compose').fadeIn(duration);
-      }
-    });
-    
-    $('.backtotop').click(function(event) {
-      event.preventDefault();
-      $('html, body').animate({scrollTop: 0}, duration);
-      $('.new-tweet').show();
-      $('#new-tweet-text').focus();
-      return false;
-    });
+      $('.backtotop').fadeOut(duration);
+      $('.compose').fadeIn(duration);
+    }
+  });
+  
+  // Button to scroll back to top. Display and autofocus the new tweet form
+  $('.backtotop').click(function(event) {
+    event.preventDefault();
+    // $('html, body').animate({scrollTop: 0}, duration);
+    $('.new-tweet').show();
+    $('#new-tweet-text').focus();
+    return false;
+  });
 });

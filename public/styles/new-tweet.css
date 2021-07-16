@@ -10,8 +10,8 @@
 }
 
 .new-tweet-footer {
-  font-family: 'Bungee', sans-serif;
   display: flex;
+  font-family: 'Bungee', sans-serif;
   justify-content: space-between;
 }
 

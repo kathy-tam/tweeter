@@ -15,21 +15,32 @@ html {
  */
 
 body {
-  color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
+  color: #545149;
   font-family: "Source Sans Pro", sans-serif;
+  font-size: 24px;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- /* Main container for tweets */
+ /* Tweets area */
 main.container {
    background-color: #f4f1ec;
    margin: auto;
    width: 90%;
+}
+
+@media (min-width: 1024px) {
+  .desktop-layout {
+    display: flex;
+    margin: 200px 50px;
+  }
+
+  main.container {
+    margin-left: 50px;
+  }
 }
 
 /* Bounce animation effect for compose arrow */
@@ -67,19 +78,4 @@ main.container {
   position: fixed;
   right: 0;
   width: 60px;
-}
-
-@media (min-width: 1024px) {
-  .main-container {
-    display: flex;
-    margin: 200px 50px;
-  }
-
-  header {
-    margin: 0px 50px 0px 0px;
-  }
-
-  main.container {
-    margin-left: 50px;
-  }
 }
