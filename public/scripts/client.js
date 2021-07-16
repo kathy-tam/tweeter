@@ -126,7 +126,6 @@ $(document).ready(function() {
   // Button to scroll back to top. Display and autofocus the new tweet form
   $('.backtotop').click(function(event) {
     event.preventDefault();
-    // $('html, body').animate({scrollTop: 0}, duration);
     $('.new-tweet').show();
     $('#new-tweet-text').focus();
     return false;
