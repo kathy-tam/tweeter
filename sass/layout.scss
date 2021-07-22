@@ -1,3 +1,5 @@
+@import "./master";
+
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
@@ -6,7 +8,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,21 +15,23 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   background-color: #f4f1ec;
-  color: #545149;
-  font-family: "Source Sans Pro", sans-serif;
+  color: $primary-color;
+  font-family: $font-stack;
   font-size: 24px;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-/* Tweets area */
+
+ /* Tweets area */
 main.container {
-  background-color: #f4f1ec;
-  margin: auto;
-  width: 90%;
+   background-color: #f4f1ec;
+   margin: auto;
+   width: 90%;
 }
 
 @media (min-width: 1024px) {
@@ -41,6 +44,7 @@ main.container {
     margin-left: 50px;
   }
 }
+
 /* Bounce animation effect for compose arrow */
 .bounce {
   animation: bounce 2s infinite;
@@ -57,9 +61,10 @@ main.container {
     transform: translateY(10px);
   }
 }
+
 /* Scroll to top button */
 .backtotop:link, .backtotop:visited, .backtotop:hover, .backtotop:active {
-  text-decoration: none;
+  text-decoration: none; 
 }
 
 .backtotop {

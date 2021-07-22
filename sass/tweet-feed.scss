@@ -1,5 +1,7 @@
+@import "./master";
+
 .tweet {
-  border: solid 3px #545149;
+  border: solid 3px $primary-color;
   padding: 0px 30px;
   margin-bottom: 30px;
 }
@@ -17,7 +19,7 @@
 
 .tweet header {
   align-items: center;
-  color: #545149;
+  color: $primary-color;
   display: flex;
   justify-content: space-between;
 }
@@ -29,8 +31,8 @@
 
 .tweet-text {
   border-style: none;
-  border-bottom: solid 3px #545149;
-  color: #545149;
+  border-bottom: solid 3px $primary-color;
+  color: $primary-color;
   width: 100%;
 }
 

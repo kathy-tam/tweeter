@@ -1,3 +1,6 @@
+@import "./master";
+
+
 nav {
   align-items: center;
   background-color: #4056A1;
@@ -9,22 +12,26 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-}
-nav span {
-  font-family: Bungee, sans-serif;
-}
-nav .compose {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-nav .compose p {
-  margin-block-end: 0em;
-}
-nav .compose .fa-angle-double-down {
-  color: red;
+  
+  span {
+    font-family: Bungee, sans-serif;
+  }
+
+  .compose {
+    align-items: center; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    p {
+      margin-block-end: 0em;
+    }
+
+    .fa-angle-double-down {
+      color: red;
+    }
+  }
 }
 
 @media (max-width: 1023px) {
